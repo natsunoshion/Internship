@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      color: #1565c0;
+      margin-bottom: 30px;
+    }
+
+    p {
+      color: #757575;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .username {
+      font-weight: bold;
+    }
+
+    .detail-label {
+      width: 100px;
+      display: inline-block;
+      color: #757575;
+    }
+
+    .detail-value {
+      margin-left: 10px;
+      color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome, {{ request.user.username }}!</h1>
+
+  <p>Other users' details:</p>
+  <ul>
+    {% for user in users %}
+      <li>
+        <span class="detail-label">Username:</span>
+        <span class="detail-value">{{ user.username }}</span><br>
+        <span class="detail-label">Password:</span>
+        <span class="detail-value">{{ user.password }}</span><br>
+        <span class="detail-label">Phone:</span>
+        <span class="detail-value">{{ user.userdetails.phone }}</span><br>
+        <span class="detail-label">Email:</span>
+        <span class="detail-value">{{ user.userdetails.email }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
